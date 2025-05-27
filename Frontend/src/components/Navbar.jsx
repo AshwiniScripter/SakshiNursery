@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ShoppingCart, Menu, X } from 'lucide-react';
 import Logo from '../images/logo.png';
 
@@ -30,7 +31,7 @@ const Navbar = () => {
 
         {/* Desktop menu */}
         <div className="hidden md:flex flex-1 justify-center gap-10 items-center text-lg">
-          <a href="#" className="hover:text-yellow-200 font-semibold">Home</a>
+          <Link to="/" className='hover:text-yellow-200 font-semibold'>Home</Link>
           <a href="#" className="hover:text-yellow-200 font-semibold">Plant</a>
 
           {/* Shop Dropdown */}
@@ -70,7 +71,7 @@ const Navbar = () => {
             {showPages && (
               <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 bg-gradient-to-br bg-white text-black rounded-xl shadow-2xl z-10 w-56">
                 <a href="#" className="block px-4 py-2 hover:text-yellow-300">Contact</a>
-                <a href="#" className="block px-4 py-2 hover:text-yellow-300">About Us</a>
+                <Link to="/about" className="block px-4 py-2 hover:text-yellow-300">About us</Link>
                 <a href="#" className="block px-4 py-2 hover:text-yellow-300">Our Delivery</a>
                 <a href="#" className="block px-4 py-2 hover:text-yellow-300">Infrastructure</a>
                 <a href="#" className="block px-4 py-2 hover:text-yellow-300">My Orders</a>
@@ -144,6 +145,7 @@ const Navbar = () => {
             {showPages && (
               <div className="mt-2 ml-4 flex flex-col gap-2">
                 <a href="#" className="hover:text-yellow-200">Contact</a>
+                <Link to="/about" className="hover:text-yellow-200">About us</Link>
                 <a href="#" className="hover:text-yellow-200">About Us</a>
                 <a href="#" className="hover:text-yellow-200">Our Delivery</a>
                 <a href="#" className="hover:text-yellow-200">Infrastructure</a>
