@@ -21,7 +21,7 @@ const customers = [
 
 const Customer = () => {
   return (
-    <div className="bg-white py-10 px-4">
+    <div className="bg-green-50 py-10 px-4">
       <h2 className="text-3xl font-bold text-center text-green-700 mb-8">
         Our Regular Customers
       </h2>
