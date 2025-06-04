@@ -37,7 +37,7 @@ const Customer = () => {
               className="w-full h-40 object-cover rounded mb-4"
             />
             <h3 className="text-xl font-semibold text-gray-800">{customer.name}</h3>
-            <p className="text-sm text-gray-600 italic">{customer.tagline}</p>
+            <p className="text-sm text-gray-600">{customer.tagline}</p>
           </div>
         ))}
       </div>
