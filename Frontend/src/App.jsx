@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import Home from './pages/Home';
 import ProductCard from './components/ProductCard';
+import Customer from './components/Customer';
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
       <Navbar/>
       <Home/>
       <ProductCard/>
+      <Customer/>
     </div>
   )
 }

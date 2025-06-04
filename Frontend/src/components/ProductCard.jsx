@@ -64,7 +64,7 @@ const ProductCard = () => {
   };
 
   return (
-    <div className="p-6 bg-green-50 min-h-screen">
+    <div className="p-6 bg-green-50">
       <Toaster position="top-right" reverseOrder={false} />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
@@ -84,7 +84,7 @@ const ProductCard = () => {
               <h3 className="text-xl font-semibold text-green-700">{product.name}</h3>
               <button
                 onClick={() => handleAddToWishlist(product)}
-                className={`text-2xl cursor-pointer select-none ms-[180px] ${
+                className={`ml-auto text-2xl cursor-pointer select-none ${
                   wishlist.includes(product.id) ? 'text-red-500' : 'text-gray-800'
                 }`}
                 title={wishlist.includes(product.id) ? 'Remove from Wishlist' : 'Add to Wishlist'}
@@ -92,6 +92,7 @@ const ProductCard = () => {
                 {wishlist.includes(product.id) ? '♥' : '♡'}
               </button>
             </div>
+
 
             <p className="text-lg font-bold text-green-600">{product.price}</p>
             <div className="mt-4 flex gap-2">
