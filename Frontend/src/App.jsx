@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import ProductCard from './components/ProductCard';
 import Customer from './components/Customer';
 import UniqueFeature from './components/UniqueFeature';
+import WhatsAppChat from './components/WhatsAppChat';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <ProductCard/>
       <Customer/>
       <UniqueFeature/>
+      <WhatsAppChat/>
     </div>
   )
 }
