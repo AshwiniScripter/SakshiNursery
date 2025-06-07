@@ -8,16 +8,22 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const vegetableList = [
-    'Tomatoes',
-    'Spinach',
-    'Carrots',
-    'Broccoli',
+    'cauliflower',
+    'Papaya',
+    'Brinjal',
+    'lady finger',
     'Cabbage',
-    'Onions',
-    'Garlic',
-    'Beetroot',
-    'Chilies',
-    'Peas',
+    'Bottle Gourd',
+    'bitter gourd',
+    'Tomato',
+    'Chilli',
+    'Capsicum',
+    'Watermelon ',
+    'Muskmelon ',
+    'Cucumber',
+    'Smaller Cucumber',
+    'drumstick',
+    'Marigold'
   ];
 
   return (
@@ -42,16 +48,18 @@ const Navbar = () => {
               Shop ▾
             </button>
             {showShopDropdown && (
-              <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 bg-gradient-to-br bg-white text-black rounded-xl shadow-2xl border  z-10 w-56">
-                {vegetableList.map((veg, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    className="block px-5 py-2 hover:text-yellow-300 transition-all duration-200 font-semibold rounded-md"
-                  >
-                    {veg}
-                  </a>
-                ))}
+              <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 bg-gradient-to-br bg-white text-black rounded-xl shadow-2xl border  z-10 w-100">
+                <div className="grid grid-cols-2 gap-x-6 gap-y-2 px-4 py-3">
+                  {vegetableList.map((veg, i) => (
+                    <a
+                      key={i}
+                      href="#"
+                      className="hover:text-yellow-300 transition-all duration-200 font-semibold rounded-md"
+                    >
+                      {veg}
+                    </a>
+                  ))}
+                </div>
               </div>
             )}
           </div>
@@ -122,7 +130,7 @@ const Navbar = () => {
               Shop ▾
             </button>
             {showShopDropdown && (
-              <div className="mt-2 ml-4 flex flex-col gap-2">
+              <div className="mt-2 ml-4 grid grid-cols-2 gap-x-4 gap-y-2">
                 {vegetableList.map((veg, i) => (
                   <a key={i} href="#" className="hover:text-yellow-200">{veg}</a>
                 ))}
