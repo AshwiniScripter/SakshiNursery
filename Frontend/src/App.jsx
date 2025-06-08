@@ -1,24 +1,43 @@
-import React from 'react'
-import Navbar from './components/Navbar'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './pages/Footer';
 import Home from './pages/Home';
 import ProductCard from './components/ProductCard';
 import Customer from './components/Customer';
 import UniqueFeature from './components/UniqueFeature';
 import WhatsAppChat from './components/WhatsAppChat';
-import Footer from './pages/Footer';
+import Cauliflower from './pages/vegetables/Cauliflower';
+// import other vegetable pages as needed
 
 const App = () => {
   return (
-    <div className='m-0 p-0'>
-      <Navbar/>
-      <Home/>
-      <ProductCard/>
-      <Customer/>
-      <UniqueFeature/>
-      <WhatsAppChat/>
-      <Footer/>
-    </div>
-  )
-}
+    <>
+      <Navbar />
+      <Routes>
+        {/* Home Route */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Home />
+              <ProductCard />
+              <Customer />
+              <UniqueFeature />
+              <WhatsAppChat />
+            </>
+          }
+        />
 
-export default App
+        {/* Vegetable Routes */}
+        <Route path="/vegetable/cauliflower" element={<Cauliflower />} />
+        {/* Add other vegetable routes here, like:
+            <Route path="/vegetable/papaya" element={<Papaya />} />
+        */}
+      </Routes>
+      <Footer />
+    </>
+  );
+};
+
+export default App;
