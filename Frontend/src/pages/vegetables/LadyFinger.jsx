@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 
-const cauliflowerVarieties = [
-  { name: '1522', description: 'Early hybrid with good yield and compact curds. Ideal for spring planting with consistent harvest quality and moderate resistance to common pests.', price: 120, available: 30 },
-  { name: 'Dhawal', description: 'Tropical variety, heat-tolerant and widely grown in India. Performs well in warmer climates and produces large white heads with excellent flavor.', price: 150, available: 20 },
-  { name: '6099', description: 'Mid-season variety with uniform growth and high resistance. Suitable for both fresh market and processing, offering good shelf life.', price: 130, available: 40 },
-  { name: 'Supershigra', description: 'Super-fast maturity with excellent white curds. Great choice for early harvest and quick turnaround in short growing seasons.', price: 140, available: 15 },
-  { name: '764', description: 'Strong plant with medium maturity and firm heads. Resistant to many diseases and adaptable to various soil types.', price: 110, available: 25 },
-  { name: '447', description: 'Popular hybrid, known for high productivity and disease tolerance. Produces uniform heads and maintains quality under storage.', price: 125, available: 35 },
-  { name: '936', description: 'Late-season variety suitable for winter harvesting. Known for large curds and excellent taste, perfect for cold climates.', price: 135, available: 18 },
+const ladyFingerVarieties = [
+  {
+    name: 'Nirmal-48',
+    description:
+      'Early maturing variety with high yield and long, tender pods. Resistant to common pests and diseases, ideal for warm climates.',
+    price: 90,
+    available: 40,
+  },
+  {
+    name: 'Samrat',
+    description:
+      'Popular variety known for its vigorous growth and dark green pods. Produces high-quality pods with good shelf life.',
+    price: 95,
+    available: 35,
+  },
 ];
 
-const cauliflowerImage = "https://hub.suttons.co.uk/wp-content/uploads/2024/08/cauliflower-skywalker-f1-organic.jpg";
+const ladyFingerImage =
+  'https://assets-news.housing.com/news/wp-content/uploads/2022/10/12174702/Are-Ladies-Fingers-and-Okra-the-same.jpg';
 
-const Cauliflower = () => {
+const LadyFinger = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
 
@@ -23,7 +31,7 @@ const Cauliflower = () => {
 
   const toggleWishlist = (varietyName) => {
     if (wishlist.includes(varietyName)) {
-      setWishlist(wishlist.filter(name => name !== varietyName));
+      setWishlist(wishlist.filter((name) => name !== varietyName));
       toast(`Removed ${varietyName} from wishlist`, { icon: '❌' });
     } else {
       setWishlist([...wishlist, varietyName]);
@@ -34,28 +42,30 @@ const Cauliflower = () => {
   return (
     <div className="p-6 bg-green-50 min-h-screen">
       <Toaster position="top-right" reverseOrder={false} />
-      <h1 className="text-4xl font-bold text-green-800 mb-8 text-center">Cauliflower</h1>
+      <h1 className="text-4xl font-bold text-green-800 mb-8 text-center">Lady Finger</h1>
 
       <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12 max-w-5xl mx-auto">
         <img
-          src={cauliflowerImage}
-          alt="Cauliflower"
+          src={ladyFingerImage}
+          alt="Lady Finger"
           className="w-full md:w-1/2 rounded-lg shadow-lg object-cover max-h-80"
         />
         <div className="md:w-1/2 text-gray-700 text-lg">
-          <p className='text-justify'>
-           Cauliflower is a cool-season vegetable belonging to the Brassica family, prized for its dense, white edible curds. Rich in vitamins C and K, fiber, and antioxidants, it supports immune health and digestion. This versatile vegetable is enjoyed steamed, roasted, or raw in salads and can be used as a low-carb substitute in many recipes. Cauliflower grows well in temperate climates and is cultivated worldwide in numerous hybrid varieties adapted to different seasons.
+          <p className="text-justify">
+            Lady Finger, also known as Okra, is a nutritious vegetable popular in warm climates. It produces long,
+            slender pods rich in fiber, vitamins, and minerals. Used widely in cooking for its unique texture, it
+            is ideal for stews, soups, and fried dishes. Cultivated globally, lady finger varieties vary in pod size,
+            yield, and pest resistance.
           </p>
         </div>
       </div>
 
       <h2 className="text-2xl font-semibold mb-6 text-green-700 text-center">
-        We have these cauliflower varieties
+        We have these lady finger varieties
       </h2>
 
-      {/* Adjusted this grid: removed max-w-8xl and added px-4 to reduce margin */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-0">
-        {cauliflowerVarieties.map((variety, index) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 px-4 sm:px-0 max-w-3xl mx-auto">
+        {ladyFingerVarieties.map((variety, index) => (
           <div
             key={index}
             className="bg-white border border-green-200 rounded-xl shadow-md p-4 hover:shadow-lg transition duration-300 flex flex-col justify-between relative"
@@ -66,7 +76,9 @@ const Cauliflower = () => {
                 <button
                   onClick={() => toggleWishlist(variety.name)}
                   className={`text-2xl cursor-pointer select-none transition-colors ${
-                    wishlist.includes(variety.name) ? 'text-red-500' : 'text-gray-400 hover:text-red-400'
+                    wishlist.includes(variety.name)
+                      ? 'text-red-500'
+                      : 'text-gray-400 hover:text-red-400'
                   }`}
                   title={wishlist.includes(variety.name) ? 'Remove from wishlist' : 'Add to wishlist'}
                   aria-label={wishlist.includes(variety.name) ? 'Remove from wishlist' : 'Add to wishlist'}
@@ -129,4 +141,4 @@ const Cauliflower = () => {
   );
 };
 
-export default Cauliflower;
+export default LadyFinger;

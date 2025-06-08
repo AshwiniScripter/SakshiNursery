@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 
-const cauliflowerVarieties = [
-  { name: '1522', description: 'Early hybrid with good yield and compact curds. Ideal for spring planting with consistent harvest quality and moderate resistance to common pests.', price: 120, available: 30 },
-  { name: 'Dhawal', description: 'Tropical variety, heat-tolerant and widely grown in India. Performs well in warmer climates and produces large white heads with excellent flavor.', price: 150, available: 20 },
-  { name: '6099', description: 'Mid-season variety with uniform growth and high resistance. Suitable for both fresh market and processing, offering good shelf life.', price: 130, available: 40 },
-  { name: 'Supershigra', description: 'Super-fast maturity with excellent white curds. Great choice for early harvest and quick turnaround in short growing seasons.', price: 140, available: 15 },
-  { name: '764', description: 'Strong plant with medium maturity and firm heads. Resistant to many diseases and adaptable to various soil types.', price: 110, available: 25 },
-  { name: '447', description: 'Popular hybrid, known for high productivity and disease tolerance. Produces uniform heads and maintains quality under storage.', price: 125, available: 35 },
-  { name: '936', description: 'Late-season variety suitable for winter harvesting. Known for large curds and excellent taste, perfect for cold climates.', price: 135, available: 18 },
+const papayaVarieties = [
+  {
+    name: 'Taiwan 786',
+    description:
+      'Popular hybrid variety known for high yield and sweet flavor. It is suitable for tropical climates and has good disease resistance.',
+    price: 180,
+    available: 25,
+  },
+  {
+    name: 'Green Berry',
+    description:
+      'Early maturing variety with green skin and sweet, soft flesh. Performs well in warm conditions and offers good shelf life.',
+    price: 160,
+    available: 30,
+  },
 ];
 
-const cauliflowerImage = "https://hub.suttons.co.uk/wp-content/uploads/2024/08/cauliflower-skywalker-f1-organic.jpg";
+const papayaImage =
+  'https://cdn.mos.cms.futurecdn.net/g7YTkCzPqJcCKSfEQi6hfE-1200-80.jpg'; 
 
-const Cauliflower = () => {
+const Papaya = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
 
@@ -23,7 +31,7 @@ const Cauliflower = () => {
 
   const toggleWishlist = (varietyName) => {
     if (wishlist.includes(varietyName)) {
-      setWishlist(wishlist.filter(name => name !== varietyName));
+      setWishlist(wishlist.filter((name) => name !== varietyName));
       toast(`Removed ${varietyName} from wishlist`, { icon: '❌' });
     } else {
       setWishlist([...wishlist, varietyName]);
@@ -34,28 +42,28 @@ const Cauliflower = () => {
   return (
     <div className="p-6 bg-green-50 min-h-screen">
       <Toaster position="top-right" reverseOrder={false} />
-      <h1 className="text-4xl font-bold text-green-800 mb-8 text-center">Cauliflower</h1>
+      <h1 className="text-4xl font-bold text-green-800 mb-8 text-center">Papaya</h1>
 
       <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12 max-w-5xl mx-auto">
         <img
-          src={cauliflowerImage}
-          alt="Cauliflower"
+          src={papayaImage}
+          alt="Papaya"
           className="w-full md:w-1/2 rounded-lg shadow-lg object-cover max-h-80"
         />
         <div className="md:w-1/2 text-gray-700 text-lg">
           <p className='text-justify'>
-           Cauliflower is a cool-season vegetable belonging to the Brassica family, prized for its dense, white edible curds. Rich in vitamins C and K, fiber, and antioxidants, it supports immune health and digestion. This versatile vegetable is enjoyed steamed, roasted, or raw in salads and can be used as a low-carb substitute in many recipes. Cauliflower grows well in temperate climates and is cultivated worldwide in numerous hybrid varieties adapted to different seasons.
-          </p>
+           Papaya is a delicious tropical fruit known for its sweet, juicy orange flesh and unique flavor. It is rich in vitamins A, C, and E, antioxidants, and digestive enzymes like papain that aid in digestion and reduce inflammation. Grown mainly in warm climates, papayas thrive in tropical and subtropical regions. This versatile fruit is enjoyed fresh, in smoothies, salads, desserts, and even cooked dishes, making it a nutritious and popular choice worldwide.
+           </p>
         </div>
       </div>
 
       <h2 className="text-2xl font-semibold mb-6 text-green-700 text-center">
-        We have these cauliflower varieties
+        We have these papaya varieties
       </h2>
 
-      {/* Adjusted this grid: removed max-w-8xl and added px-4 to reduce margin */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-0">
-        {cauliflowerVarieties.map((variety, index) => (
+      {/* Center the cards container and limit width */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 px-4 sm:px-0 max-w-3xl mx-auto">
+        {papayaVarieties.map((variety, index) => (
           <div
             key={index}
             className="bg-white border border-green-200 rounded-xl shadow-md p-4 hover:shadow-lg transition duration-300 flex flex-col justify-between relative"
@@ -66,7 +74,9 @@ const Cauliflower = () => {
                 <button
                   onClick={() => toggleWishlist(variety.name)}
                   className={`text-2xl cursor-pointer select-none transition-colors ${
-                    wishlist.includes(variety.name) ? 'text-red-500' : 'text-gray-400 hover:text-red-400'
+                    wishlist.includes(variety.name)
+                      ? 'text-red-500'
+                      : 'text-gray-400 hover:text-red-400'
                   }`}
                   title={wishlist.includes(variety.name) ? 'Remove from wishlist' : 'Add to wishlist'}
                   aria-label={wishlist.includes(variety.name) ? 'Remove from wishlist' : 'Add to wishlist'}
@@ -129,4 +139,4 @@ const Cauliflower = () => {
   );
 };
 
-export default Cauliflower;
+export default Papaya;

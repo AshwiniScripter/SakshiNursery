@@ -8,7 +8,11 @@ import Customer from './components/Customer';
 import UniqueFeature from './components/UniqueFeature';
 import WhatsAppChat from './components/WhatsAppChat';
 import Cauliflower from './pages/vegetables/Cauliflower';
-// import other vegetable pages as needed
+import Papaya from './pages/vegetables/Papaya';
+import Brinjal from './pages/vegetables/Brinjal';
+import LadyFinger from './pages/vegetables/LadyFinger';
+import Cabbage from './pages/vegetables/Cabbage';
+
 
 const App = () => {
   return (
@@ -31,9 +35,10 @@ const App = () => {
 
         {/* Vegetable Routes */}
         <Route path="/vegetable/cauliflower" element={<Cauliflower />} />
-        {/* Add other vegetable routes here, like:
-            <Route path="/vegetable/papaya" element={<Papaya />} />
-        */}
+        <Route path="/vegetable/papaya" element={<Papaya />} />
+        <Route path="/vegetable/brinjal" element={<Brinjal/>}/>
+        <Route path='/vegetable/lady-finger' element={<LadyFinger/>}/>
+        <Route path='vegetable/cabbage' element={<Cabbage/>}/>
       </Routes>
       <Footer />
     </>

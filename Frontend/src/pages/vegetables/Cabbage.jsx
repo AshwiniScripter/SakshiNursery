@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 
-const cauliflowerVarieties = [
-  { name: '1522', description: 'Early hybrid with good yield and compact curds. Ideal for spring planting with consistent harvest quality and moderate resistance to common pests.', price: 120, available: 30 },
-  { name: 'Dhawal', description: 'Tropical variety, heat-tolerant and widely grown in India. Performs well in warmer climates and produces large white heads with excellent flavor.', price: 150, available: 20 },
-  { name: '6099', description: 'Mid-season variety with uniform growth and high resistance. Suitable for both fresh market and processing, offering good shelf life.', price: 130, available: 40 },
-  { name: 'Supershigra', description: 'Super-fast maturity with excellent white curds. Great choice for early harvest and quick turnaround in short growing seasons.', price: 140, available: 15 },
-  { name: '764', description: 'Strong plant with medium maturity and firm heads. Resistant to many diseases and adaptable to various soil types.', price: 110, available: 25 },
-  { name: '447', description: 'Popular hybrid, known for high productivity and disease tolerance. Produces uniform heads and maintains quality under storage.', price: 125, available: 35 },
-  { name: '936', description: 'Late-season variety suitable for winter harvesting. Known for large curds and excellent taste, perfect for cold climates.', price: 135, available: 18 },
+const cabbageVarieties = [
+  { name: 'Sent', description: 'Early maturing variety with dense heads and good taste. Performs well in cooler climates.', price: 100, available: 30 },
+  { name: 'Veer-322', description: 'High-yielding hybrid cabbage with excellent disease resistance and uniform heads.', price: 130, available: 25 },
+  { name: 'Yuro-2', description: 'Mid-season variety with compact heads and good shelf life. Suitable for fresh market.', price: 110, available: 35 },
+  { name: 'Divya', description: 'Popular variety known for sweet flavor and good weight. Adaptable to various soil types.', price: 120, available: 20 },
+  { name: 'Admiral', description: 'Late-season variety with large heads and strong stalks. Performs well under high temperature.', price: 140, available: 18 },
+  { name: '199', description: 'Hybrid cabbage with excellent uniformity and resistance to pests. Suitable for commercial cultivation.', price: 125, available: 22 },
 ];
 
-const cauliflowerImage = "https://hub.suttons.co.uk/wp-content/uploads/2024/08/cauliflower-skywalker-f1-organic.jpg";
+const cabbageImage = "https://cdn.pixabay.com/photo/2018/10/03/22/08/kohl-3722517_1280.jpg";
 
-const Cauliflower = () => {
+const Cabbage = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
 
@@ -34,28 +33,27 @@ const Cauliflower = () => {
   return (
     <div className="p-6 bg-green-50 min-h-screen">
       <Toaster position="top-right" reverseOrder={false} />
-      <h1 className="text-4xl font-bold text-green-800 mb-8 text-center">Cauliflower</h1>
+      <h1 className="text-4xl font-bold text-green-800 mb-8 text-center">Cabbage</h1>
 
       <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12 max-w-5xl mx-auto">
         <img
-          src={cauliflowerImage}
-          alt="Cauliflower"
+          src={cabbageImage}
+          alt="Cabbage"
           className="w-full md:w-1/2 rounded-lg shadow-lg object-cover max-h-80"
         />
         <div className="md:w-1/2 text-gray-700 text-lg">
-          <p className='text-justify'>
-           Cauliflower is a cool-season vegetable belonging to the Brassica family, prized for its dense, white edible curds. Rich in vitamins C and K, fiber, and antioxidants, it supports immune health and digestion. This versatile vegetable is enjoyed steamed, roasted, or raw in salads and can be used as a low-carb substitute in many recipes. Cauliflower grows well in temperate climates and is cultivated worldwide in numerous hybrid varieties adapted to different seasons.
+          <p className="text-justify">
+            Cabbage is a leafy green, red, or white biennial plant grown as an annual vegetable crop for its dense-leaved heads. Rich in vitamins C and K, it supports immune health and digestion. Cabbage is used fresh in salads, cooked in various dishes, and fermented to make sauerkraut and kimchi. It grows well in cooler climates and is cultivated worldwide with many varieties suited for different seasons.
           </p>
         </div>
       </div>
 
       <h2 className="text-2xl font-semibold mb-6 text-green-700 text-center">
-        We have these cauliflower varieties
+        We have these cabbage varieties
       </h2>
 
-      {/* Adjusted this grid: removed max-w-8xl and added px-4 to reduce margin */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-0">
-        {cauliflowerVarieties.map((variety, index) => (
+        {cabbageVarieties.map((variety, index) => (
           <div
             key={index}
             className="bg-white border border-green-200 rounded-xl shadow-md p-4 hover:shadow-lg transition duration-300 flex flex-col justify-between relative"
@@ -129,4 +127,4 @@ const Cauliflower = () => {
   );
 };
 
-export default Cauliflower;
+export default Cabbage;

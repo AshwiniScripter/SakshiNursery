@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 
-const cauliflowerVarieties = [
-  { name: '1522', description: 'Early hybrid with good yield and compact curds. Ideal for spring planting with consistent harvest quality and moderate resistance to common pests.', price: 120, available: 30 },
-  { name: 'Dhawal', description: 'Tropical variety, heat-tolerant and widely grown in India. Performs well in warmer climates and produces large white heads with excellent flavor.', price: 150, available: 20 },
-  { name: '6099', description: 'Mid-season variety with uniform growth and high resistance. Suitable for both fresh market and processing, offering good shelf life.', price: 130, available: 40 },
-  { name: 'Supershigra', description: 'Super-fast maturity with excellent white curds. Great choice for early harvest and quick turnaround in short growing seasons.', price: 140, available: 15 },
-  { name: '764', description: 'Strong plant with medium maturity and firm heads. Resistant to many diseases and adaptable to various soil types.', price: 110, available: 25 },
-  { name: '447', description: 'Popular hybrid, known for high productivity and disease tolerance. Produces uniform heads and maintains quality under storage.', price: 125, available: 35 },
-  { name: '936', description: 'Late-season variety suitable for winter harvesting. Known for large curds and excellent taste, perfect for cold climates.', price: 135, available: 18 },
+const brinjalVarieties = [
+  { name: 'Panchganga', description: 'High yielding variety known for its medium-sized, glossy purple fruits. Adapted to various climates and resistant to common pests.', price: 110, available: 30 },
+  { name: 'Super Gaurav', description: 'Popular hybrid variety producing large, deep purple fruits with good shelf life and excellent taste.', price: 130, available: 25 },
+  { name: 'Commander', description: 'Vigorous plant with medium maturity and long fruits. Suitable for fresh market and processing.', price: 120, available: 20 },
+  { name: 'Deshi Ravaya', description: 'Local variety known for its unique flavor and adaptability to traditional farming methods.', price: 100, available: 40 },
+  { name: 'Galan', description: 'Early maturing variety with smooth, dark purple fruits and good disease resistance.', price: 115, available: 35 },
+  { name: 'Bartok', description: 'Hybrid brinjal variety producing high-quality fruits with excellent color and firmness.', price: 125, available: 22 },
+  { name: 'Bharta', description: 'Suitable for cooking and making traditional dishes; produces medium-sized, firm fruits.', price: 105, available: 28 },
+  { name: 'Jalgoan', description: 'Late season variety known for its large fruits and adaptability to different soil types.', price: 135, available: 18 },
 ];
 
-const cauliflowerImage = "https://hub.suttons.co.uk/wp-content/uploads/2024/08/cauliflower-skywalker-f1-organic.jpg";
+const brinjalImage = "https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg";
 
-const Cauliflower = () => {
+const Brinjal = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
 
@@ -34,28 +35,27 @@ const Cauliflower = () => {
   return (
     <div className="p-6 bg-green-50 min-h-screen">
       <Toaster position="top-right" reverseOrder={false} />
-      <h1 className="text-4xl font-bold text-green-800 mb-8 text-center">Cauliflower</h1>
+      <h1 className="text-4xl font-bold text-green-800 mb-8 text-center">Brinjal</h1>
 
       <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12 max-w-5xl mx-auto">
         <img
-          src={cauliflowerImage}
-          alt="Cauliflower"
+          src={brinjalImage}
+          alt="Brinjal"
           className="w-full md:w-1/2 rounded-lg shadow-lg object-cover max-h-80"
         />
         <div className="md:w-1/2 text-gray-700 text-lg">
-          <p className='text-justify'>
-           Cauliflower is a cool-season vegetable belonging to the Brassica family, prized for its dense, white edible curds. Rich in vitamins C and K, fiber, and antioxidants, it supports immune health and digestion. This versatile vegetable is enjoyed steamed, roasted, or raw in salads and can be used as a low-carb substitute in many recipes. Cauliflower grows well in temperate climates and is cultivated worldwide in numerous hybrid varieties adapted to different seasons.
+          <p className="text-justify">
+            Brinjal, also known as eggplant or aubergine, is a widely cultivated vegetable in the nightshade family. It produces glossy purple fruits that vary in shape and size. Rich in dietary fiber, vitamins, and antioxidants, brinjal supports heart health and digestion. It thrives in warm climates and is a staple in many cuisines, used in curries, grilling, roasting, and frying. Numerous hybrid varieties have been developed to improve yield, pest resistance, and fruit quality.
           </p>
         </div>
       </div>
 
       <h2 className="text-2xl font-semibold mb-6 text-green-700 text-center">
-        We have these cauliflower varieties
+        We have these brinjal varieties
       </h2>
 
-      {/* Adjusted this grid: removed max-w-8xl and added px-4 to reduce margin */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-0">
-        {cauliflowerVarieties.map((variety, index) => (
+        {brinjalVarieties.map((variety, index) => (
           <div
             key={index}
             className="bg-white border border-green-200 rounded-xl shadow-md p-4 hover:shadow-lg transition duration-300 flex flex-col justify-between relative"
@@ -129,4 +129,4 @@ const Cauliflower = () => {
   );
 };
 
-export default Cauliflower;
+export default Brinjal;
