@@ -32,7 +32,7 @@ const Cauliflower = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
+    <div className="p-6 bg-green-50 min-h-screen">
       <Toaster position="top-right" reverseOrder={false} />
       <h1 className="text-4xl font-bold text-green-800 mb-8 text-center">Cauliflower</h1>
 
