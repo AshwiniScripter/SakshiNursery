@@ -58,7 +58,7 @@ const capsicumVarieties = [
 const capsicumImage = "https://www.netafimindia.com/bynder/00E33388-6E92-485B-8EEFAAAF53AB8652-capsicum-grown-in-greenhouse-close-up-photo-.jpg?width=1200&height=630&rmode=Min";
 
 
-const Cauliflower = () => {
+const capsicum = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -214,7 +214,7 @@ const Cauliflower = () => {
                       {wishlist.includes(variety.name) ? '♥' : '♡'}
                     </button>
                   </div>
-                  <p className="text-gray-700 mb-4">{variety.description}</p>
+                  <p className="text-gray-700 mb-4 text-justify">{variety.description}</p>
                   <p className="text-green-800 font-semibold text-lg mb-6">
                     Price: ₹{variety.price}
                   </p>
@@ -242,4 +242,4 @@ const Cauliflower = () => {
   );
 };
 
-export default Cauliflower;
+export default capsicum;

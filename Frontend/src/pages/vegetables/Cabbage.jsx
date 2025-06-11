@@ -81,7 +81,7 @@ const cabbageVarieties = [
 const cabbageImage = "https://cdn.pixabay.com/photo/2018/10/03/22/08/kohl-3722517_1280.jpg";
 
 
-const Cauliflower = () => {
+const Cabbage = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -237,7 +237,7 @@ const Cauliflower = () => {
                       {wishlist.includes(variety.name) ? '♥' : '♡'}
                     </button>
                   </div>
-                  <p className="text-gray-700 mb-4">{variety.description}</p>
+                  <p className="text-gray-700 mb-4 text-justify">{variety.description}</p>
                   <p className="text-green-800 font-semibold text-lg mb-6">
                     Price: ₹{variety.price}
                   </p>
@@ -265,4 +265,4 @@ const Cauliflower = () => {
   );
 };
 
-export default Cauliflower;
+export default Cabbage;

@@ -75,7 +75,7 @@ const tomatoVarieties = [
 const tomatoImage = "https://media.istockphoto.com/id/1132371208/photo/three-ripe-tomatoes-on-green-branch.jpg?s=612x612&w=0&k=20&c=qVjDb5Tk3-UccV-E9gqvoz97PTsP1QmBftw27qA9kEo=";
 
 
-const Cauliflower = () => {
+const Tomato = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -231,7 +231,7 @@ const Cauliflower = () => {
                       {wishlist.includes(variety.name) ? '♥' : '♡'}
                     </button>
                   </div>
-                  <p className="text-gray-700 mb-4">{variety.description}</p>
+                  <p className="text-gray-700 mb-4 text-justify">{variety.description}</p>
                   <p className="text-green-800 font-semibold text-lg mb-6">
                     Price: ₹{variety.price}
                   </p>
@@ -259,4 +259,4 @@ const Cauliflower = () => {
   );
 };
 
-export default Cauliflower;
+export default Tomato;

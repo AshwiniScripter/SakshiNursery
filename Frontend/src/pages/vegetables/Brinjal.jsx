@@ -104,7 +104,7 @@ const brinjalVarieties = [
 const brinjalImage = "https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg";
 
 
-const Cauliflower = () => {
+const Brinjal = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -260,7 +260,7 @@ const Cauliflower = () => {
                       {wishlist.includes(variety.name) ? '♥' : '♡'}
                     </button>
                   </div>
-                  <p className="text-gray-700 mb-4">{variety.description}</p>
+                  <p className="text-gray-700 mb-4 text-justify">{variety.description}</p>
                   <p className="text-green-800 font-semibold text-lg mb-6">
                     Price: ₹{variety.price}
                   </p>
@@ -288,4 +288,4 @@ const Cauliflower = () => {
   );
 };
 
-export default Cauliflower;
+export default Brinjal;

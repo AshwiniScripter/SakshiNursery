@@ -44,7 +44,7 @@ const bottleGourdVarieties = [
 const bottleGourdImage =
   'https://st4.depositphotos.com/4243035/31462/i/450/depositphotos_314626368-stock-photo-bottle-gourd-or-calabash-gourd.jpg';
 
-const Papaya = () => {
+const bottleGourd = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -207,7 +207,7 @@ const Papaya = () => {
                       {wishlist.includes(variety.name) ? '♥' : '♡'}
                     </button>
                   </div>
-                  <p className="text-gray-700 mb-4">{variety.description}</p>
+                  <p className="text-gray-700 mb-4 text-justify">{variety.description}</p>
                   <p className="text-green-800 font-semibold text-lg mb-6">
                     Price: ₹{variety.price}
                   </p>
@@ -235,4 +235,4 @@ const Papaya = () => {
   );
 };
 
-export default Papaya;
+export default bottleGourd;

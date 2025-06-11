@@ -20,7 +20,7 @@ const drumstickVarieties = [
 const drumstickImage =
   'https://rukminim2.flixcart.com/image/850/1000/xif0q/plant-sapling/j/i/r/no-annual-no-drumstick-tree-plant-1-plastic-bag-kapebonavista-original-imaghuhe7zymy2tn.jpeg?q=20&crop=false';
 
-const Papaya = () => {
+const Drumstick = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -183,7 +183,7 @@ const Papaya = () => {
                       {wishlist.includes(variety.name) ? '♥' : '♡'}
                     </button>
                   </div>
-                  <p className="text-gray-700 mb-4">{variety.description}</p>
+                  <p className="text-gray-700 mb-4 text-justify">{variety.description}</p>
                   <p className="text-green-800 font-semibold text-lg mb-6">
                     Price: ₹{variety.price}
                   </p>
@@ -211,4 +211,4 @@ const Papaya = () => {
   );
 };
 
-export default Papaya;
+export default Drumstick;

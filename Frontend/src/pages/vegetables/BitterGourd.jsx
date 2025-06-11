@@ -57,7 +57,7 @@ const bitterGourdVarieties = [
 const bitterGourdImage = "https://cdn.pixabay.com/photo/2021/08/09/21/49/bitter-gourd-6534410_640.jpg";
 
 
-const Cauliflower = () => {
+const bitterGourd = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -213,7 +213,7 @@ const Cauliflower = () => {
                       {wishlist.includes(variety.name) ? '♥' : '♡'}
                     </button>
                   </div>
-                  <p className="text-gray-700 mb-4">{variety.description}</p>
+                  <p className="text-gray-700 mb-4 text-justify">{variety.description}</p>
                   <p className="text-green-800 font-semibold text-lg mb-6">
                     Price: ₹{variety.price}
                   </p>
@@ -241,4 +241,4 @@ const Cauliflower = () => {
   );
 };
 
-export default Cauliflower;
+export default bitterGourd;

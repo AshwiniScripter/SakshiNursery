@@ -125,7 +125,7 @@ const Papaya = () => {
               <p className="text-green-700 text-xl font-semibold mb-2">
                 ₹{selectedVariety.price}
               </p>
-              <p className="text-gray-700 mb-3">{selectedVariety.description}</p>
+              <p className="text-gray-700 mb-3 text-justify">{selectedVariety.description}</p>
               <p className="text-md mb-1">
                 <span className="font-semibold">Category:</span> Indoor
               </p>

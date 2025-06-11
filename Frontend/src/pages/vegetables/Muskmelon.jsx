@@ -72,7 +72,7 @@ const muskmelonVarieties = [
 const muskmelonImage = "https://upload.wikimedia.org/wikipedia/commons/f/ff/Muskmelon.jpg";
 
 
-const Cauliflower = () => {
+const Muskmelon = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -228,7 +228,7 @@ const Cauliflower = () => {
                       {wishlist.includes(variety.name) ? '♥' : '♡'}
                     </button>
                   </div>
-                  <p className="text-gray-700 mb-4">{variety.description}</p>
+                  <p className="text-gray-700 mb-4 text-justify">{variety.description}</p>
                   <p className="text-green-800 font-semibold text-lg mb-6">
                     Price: ₹{variety.price}
                   </p>
@@ -256,4 +256,4 @@ const Cauliflower = () => {
   );
 };
 
-export default Cauliflower;
+export default Muskmelon;

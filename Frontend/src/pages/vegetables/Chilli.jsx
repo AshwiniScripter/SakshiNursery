@@ -70,7 +70,7 @@ const chilliVarieties = [
 const chilliImage = "https://images.unsplash.com/photo-1518006959466-0db0b6b4c1d0?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpbGxpJTIwcGVwcGVyfGVufDB8fDB8fHww";
 
 
-const Cauliflower = () => {
+const Chilli = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -226,7 +226,7 @@ const Cauliflower = () => {
                       {wishlist.includes(variety.name) ? '♥' : '♡'}
                     </button>
                   </div>
-                  <p className="text-gray-700 mb-4">{variety.description}</p>
+                  <p className="text-gray-700 mb-4 text-justify">{variety.description}</p>
                   <p className="text-green-800 font-semibold text-lg mb-6">
                     Price: ₹{variety.price}
                   </p>
@@ -254,4 +254,4 @@ const Cauliflower = () => {
   );
 };
 
-export default Cauliflower;
+export default Chilli;

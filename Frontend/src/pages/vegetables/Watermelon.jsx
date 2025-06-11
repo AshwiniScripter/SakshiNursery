@@ -59,7 +59,7 @@ const watermelonVarieties = [
 const watermelonImage = "https://humboldtssecretsupplies.com/cdn/shop/articles/1_e041e45d-40b8-44ab-b9f2-135435f238e3_1200x1200.jpg?v=1661274566";
 
 
-const Cauliflower = () => {
+const watermelon = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -215,7 +215,7 @@ const Cauliflower = () => {
                       {wishlist.includes(variety.name) ? '♥' : '♡'}
                     </button>
                   </div>
-                  <p className="text-gray-700 mb-4">{variety.description}</p>
+                  <p className="text-gray-700 mb-4 text-justify">{variety.description}</p>
                   <p className="text-green-800 font-semibold text-lg mb-6">
                     Price: ₹{variety.price}
                   </p>
@@ -243,4 +243,4 @@ const Cauliflower = () => {
   );
 };
 
-export default Cauliflower;
+export default watermelon;

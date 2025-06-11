@@ -31,7 +31,7 @@ const ladyFingerVarieties = [
 const ladyFingerImage =
   'https://assets-news.housing.com/news/wp-content/uploads/2022/10/12174702/Are-Ladies-Fingers-and-Okra-the-same.jpg';
 
-const Papaya = () => {
+const LadyFinger = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -197,7 +197,7 @@ const Papaya = () => {
                       {wishlist.includes(variety.name) ? '♥' : '♡'}
                     </button>
                   </div>
-                  <p className="text-gray-700 mb-4">{variety.description}</p>
+                  <p className="text-gray-700 mb-4 text-justify">{variety.description}</p>
                   <p className="text-green-800 font-semibold text-lg mb-6">
                     Price: ₹{variety.price}
                   </p>
@@ -225,4 +225,4 @@ const Papaya = () => {
   );
 };
 
-export default Papaya;
+export default LadyFinger;
