@@ -103,10 +103,10 @@ const Cauliflower = () => {
   const toggleWishlist = (varietyName) => {
     if (wishlist.includes(varietyName)) {
       setWishlist(wishlist.filter((name) => name !== varietyName));
-      toast(`Removed ${varietyName} from wishlist`, { icon: '❌' });
+      toast(`${varietyName} removed from wishlist`, { icon: '❌' });
     } else {
       setWishlist([...wishlist, varietyName]);
-      toast.success(`Added ${varietyName} to wishlist`);
+      toast.success(`${varietyName} added to wishlist`);
     }
   };
 
@@ -120,12 +120,10 @@ const Cauliflower = () => {
     setSlideIndex((prev) => (prev - 1 + selectedVariety.images.length) % selectedVariety.images.length);
   };
 
-  // Reset to first image when a new variety is selected
   useEffect(() => {
     setSlideIndex(0);
   }, [selectedVariety]);
 
-  // Autoplay for image slider
   useEffect(() => {
     if (!selectedVariety) return;
     const interval = setInterval(() => {
@@ -135,19 +133,19 @@ const Cauliflower = () => {
   }, [selectedVariety, selectedVariety?.images.length]);
 
   return (
-    <main className="p-6 bg-green-50 min-h-screen">
+    <main className="px-4 sm:px-6 pt-6 pb-4 bg-green-50">
       <Toaster position="top-right" reverseOrder={false} />
 
       {selectedVariety ? (
-        <section className="min-h-screen flex items-center justify-center">
-          <article className="max-w-7xl bg-white rounded-xl shadow-xl p-8 flex flex-col md:flex-row gap-6 items-center">
-            <div className="w-full md:w-1/2 relative flex flex-col items-center justify-center">
+        <section className="flex items-center justify-center py-2">
+          <article className="max-w-7xl bg-white rounded-xl shadow-xl p-6 flex flex-col md:flex-row gap-6">
+            <div className="w-full md:w-1/2 relative">
               <img
                 src={selectedVariety.images[slideIndex]}
                 alt={`${selectedVariety.name} variety - image ${slideIndex + 1}`}
-                className="w-full h-auto rounded-lg object-cover"
+                className="w-full rounded-lg object-cover max-h-[400px]"
               />
-              <div className="absolute left-2 top-1/2 transform -translate-y-1/2">
+              <div className="absolute left-2 top-1/2 -translate-y-1/2">
                 <button
                   onClick={prevSlide}
                   className="bg-green-600 text-white rounded-full px-3 py-1 hover:bg-green-700"
@@ -155,7 +153,7 @@ const Cauliflower = () => {
                   ‹
                 </button>
               </div>
-              <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
+              <div className="absolute right-2 top-1/2 -translate-y-1/2">
                 <button
                   onClick={nextSlide}
                   className="bg-green-600 text-white rounded-full px-3 py-1 hover:bg-green-700"
@@ -163,13 +161,15 @@ const Cauliflower = () => {
                   ›
                 </button>
               </div>
-
-              {/* Dot Navigation */}
-              <div className="flex mt-4 gap-2">
+              <div className="flex justify-center mt-2 gap-2">
                 {selectedVariety.images.map((_, i) => (
                   <button
                     key={i}
-                    className={`w-4 h-4 rounded-full border-2 ${slideIndex === i ? 'bg-green-600 border-green-600' : 'bg-white border-gray-400'}`}
+                    className={`w-3 h-3 rounded-full border-2 ${
+                      slideIndex === i
+                        ? 'bg-green-600 border-green-600'
+                        : 'bg-white border-gray-400'
+                    }`}
                     onClick={() => setSlideIndex(i)}
                   />
                 ))}
@@ -180,8 +180,12 @@ const Cauliflower = () => {
               <h2 className="text-3xl font-bold text-green-800 mb-2">{selectedVariety.name}</h2>
               <p className="text-green-700 text-xl font-semibold mb-2">₹{selectedVariety.price}</p>
               <p className="text-gray-700 mb-3">{selectedVariety.description}</p>
-              <p className="text-md mb-1"><span className="font-semibold">Category:</span> Indoor</p>
-              <p className="text-md mb-4"><span className="font-semibold">Stock:</span> {selectedVariety.available} available</p>
+              <p className="text-md mb-1">
+                <span className="font-semibold">Category:</span> Outdoor
+              </p>
+              <p className="text-md mb-4 text-red-600">
+                <span className="font-semibold">Available:</span> {selectedVariety.available} units
+              </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
@@ -202,8 +206,11 @@ const Cauliflower = () => {
         </section>
       ) : (
         <>
-          <h1 className="text-4xl font-bold text-green-800 mb-8 text-center">Cauliflower</h1>
-          <section className="flex flex-col md:flex-row items-center gap-8 mb-12 max-w-5xl mx-auto">
+          <h1 className="text-4xl font-bold text-green-800 mb-6 text-center">
+            Cauliflower
+          </h1>
+
+          <section className="flex flex-col md:flex-row items-center gap-8 mb-10 max-w-5xl mx-auto">
             <img
               src={cauliflowerImage}
               alt="Cauliflower"
@@ -211,8 +218,7 @@ const Cauliflower = () => {
             />
             <div className="md:w-1/2 text-gray-700 text-lg">
               <p className="text-justify">
-                Cauliflower is a cool-season vegetable belonging to the Brassica family, prized for
-                its dense, white edible curds. Rich in vitamins C and K, fiber, and antioxidants...
+                Cauliflower is a nutritious vegetable known for its versatility and health benefits. It is rich in fiber, vitamins C and K, and antioxidants. Cauliflower is widely grown in temperate and tropical regions and is used in a variety of dishes including curries, salads, and roasted preparations.
               </p>
             </div>
           </section>
