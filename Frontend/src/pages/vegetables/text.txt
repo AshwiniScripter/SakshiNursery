@@ -21,9 +21,9 @@ const cauliflowerVarieties = [
     price: 150,
     available: 20,
     images: [
-     'https://swirlsofflavor.com/wp-content/uploads/2022/03/cauliflower-heads-cva-700x521.jpg.webp',
-      'https://www.marthastewart.com/thmb/vaYxsIZB6TKJpWPW8cp6ca7-5ys=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cauliflower-med108019_horiz-0622-d111be16021545ae8d216be6e477fae4.jpg',
-      'https://cdn.britannica.com/24/140624-050-A8237BB9/Cauliflower-plant-form-cauliflower-cabbage-flower-structures.jpg',
+      'https://example.com/dhawal-1.jpg',
+      'https://example.com/dhawal-2.jpg',
+      'https://example.com/dhawal-3.jpg',
     ],
   },
   {
@@ -33,9 +33,9 @@ const cauliflowerVarieties = [
     price: 130,
     available: 40,
     images: [
-      'https://swirlsofflavor.com/wp-content/uploads/2022/03/cauliflower-heads-cva-700x521.jpg.webp',
-      'https://www.marthastewart.com/thmb/vaYxsIZB6TKJpWPW8cp6ca7-5ys=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cauliflower-med108019_horiz-0622-d111be16021545ae8d216be6e477fae4.jpg',
-      'https://cdn.britannica.com/24/140624-050-A8237BB9/Cauliflower-plant-form-cauliflower-cabbage-flower-structures.jpg',
+      'https://example.com/6099-1.jpg',
+      'https://example.com/6099-2.jpg',
+      'https://example.com/6099-3.jpg',
     ],
   },
   {
@@ -45,9 +45,9 @@ const cauliflowerVarieties = [
     price: 140,
     available: 15,
     images: [
-      'https://swirlsofflavor.com/wp-content/uploads/2022/03/cauliflower-heads-cva-700x521.jpg.webp',
-      'https://www.marthastewart.com/thmb/vaYxsIZB6TKJpWPW8cp6ca7-5ys=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cauliflower-med108019_horiz-0622-d111be16021545ae8d216be6e477fae4.jpg',
-      'https://cdn.britannica.com/24/140624-050-A8237BB9/Cauliflower-plant-form-cauliflower-cabbage-flower-structures.jpg',
+      'https://example.com/supershigra-1.jpg',
+      'https://example.com/supershigra-2.jpg',
+      'https://example.com/supershigra-3.jpg',
     ],
   },
   {
@@ -57,9 +57,9 @@ const cauliflowerVarieties = [
     price: 110,
     available: 25,
     images: [
-     'https://swirlsofflavor.com/wp-content/uploads/2022/03/cauliflower-heads-cva-700x521.jpg.webp',
-      'https://www.marthastewart.com/thmb/vaYxsIZB6TKJpWPW8cp6ca7-5ys=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cauliflower-med108019_horiz-0622-d111be16021545ae8d216be6e477fae4.jpg',
-      'https://cdn.britannica.com/24/140624-050-A8237BB9/Cauliflower-plant-form-cauliflower-cabbage-flower-structures.jpg',
+      'https://example.com/764-1.jpg',
+      'https://example.com/764-2.jpg',
+      'https://example.com/764-3.jpg',
     ],
   },
   {
@@ -69,9 +69,9 @@ const cauliflowerVarieties = [
     price: 125,
     available: 35,
     images: [
-      'https://swirlsofflavor.com/wp-content/uploads/2022/03/cauliflower-heads-cva-700x521.jpg.webp',
-      'https://www.marthastewart.com/thmb/vaYxsIZB6TKJpWPW8cp6ca7-5ys=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cauliflower-med108019_horiz-0622-d111be16021545ae8d216be6e477fae4.jpg',
-      'https://cdn.britannica.com/24/140624-050-A8237BB9/Cauliflower-plant-form-cauliflower-cabbage-flower-structures.jpg',
+      'https://example.com/447-1.jpg',
+      'https://example.com/447-2.jpg',
+      'https://example.com/447-3.jpg',
     ],
   },
   {
@@ -81,9 +81,9 @@ const cauliflowerVarieties = [
     price: 135,
     available: 18,
     images: [
-     'https://swirlsofflavor.com/wp-content/uploads/2022/03/cauliflower-heads-cva-700x521.jpg.webp',
-      'https://www.marthastewart.com/thmb/vaYxsIZB6TKJpWPW8cp6ca7-5ys=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cauliflower-med108019_horiz-0622-d111be16021545ae8d216be6e477fae4.jpg',
-      'https://cdn.britannica.com/24/140624-050-A8237BB9/Cauliflower-plant-form-cauliflower-cabbage-flower-structures.jpg',
+      'https://example.com/936-1.jpg',
+      'https://example.com/936-2.jpg',
+      'https://example.com/936-3.jpg',
     ],
   },
 ];
@@ -122,72 +122,72 @@ const Cauliflower = () => {
     );
   };
 
+  // Reset slide index when selectedVariety changes
   React.useEffect(() => {
     setSlideIndex(0);
   }, [selectedVariety]);
 
   return (
-    <div className="px-0 py-0 bg-green-50 min-h-screen">
+    <div className="p-6 bg-green-50 min-h-screen">
       <Toaster position="top-right" reverseOrder={false} />
 
       {selectedVariety ? (
-        // === Centered Detailed View Layout ===
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="max-w-7xl bg-white rounded-xl shadow-xl p-8 flex flex-col md:flex-row gap-6 items-center">
-            <div className="w-full md:w-1/2 relative flex items-center justify-center">
-              <img
-                src={selectedVariety.images[slideIndex]}
-                alt={`${selectedVariety.name} - slide ${slideIndex + 1}`}
-                className="w-full h-auto rounded-lg object-cover"
-              />
+        // === Detailed View Layout with slideshow ===
+        <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-xl p-6 flex flex-col md:flex-row gap-6 items-center">
+          <div className="w-full md:w-1/2 relative flex items-center justify-center">
+            <img
+              src={selectedVariety.images[slideIndex]}
+              alt={`${selectedVariety.name} - slide ${slideIndex + 1}`}
+              className="w-full h-auto rounded-lg object-cover"
+            />                                                        
+            {/* Slideshow controls */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-green-600 text-white rounded-full px-3 py1 hover:bg-green-700 select-none"
+              aria-label="Previous image"
+            >
+              ‹
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-green-600 text-white rounded-full px-3 py-1 hover:bg-green-700 select-none"
+              aria-label="Next image"
+            >
+              ›
+            </button>
+          </div>
+
+          <div className="flex-1">
+            <h2 className="text-3xl font-bold text-green-800 mb-2">{selectedVariety.name}</h2>
+            <p className="text-green-700 text-xl font-semibold mb-2">₹{selectedVariety.price}</p>
+            <p className="text-gray-700 mb-3">{selectedVariety.description}</p>
+            <p className="text-md mb-1">
+              <span className="font-semibold">Category:</span>{' '}
+              <span className="text-green-800">Indoor</span>
+            </p>
+            <p className="text-md mb-4">
+              <span className="font-semibold">Stock:</span>{' '}
+              <span className="text-green-800">{selectedVariety.available} available</span>
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
               <button
-                onClick={prevSlide}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-green-600 text-white rounded-full px-3 py-1 hover:bg-green-700"
-                aria-label="Previous image"
+                onClick={() => handleAddToCart(selectedVariety.name)}
+                className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700"
               >
-                ‹
+                Add to Cart
               </button>
               <button
-                onClick={nextSlide}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-green-600 text-white rounded-full px-3 py-1 hover:bg-green-700"
-                aria-label="Next image"
+                className="underline text-sm text-gray-500"
+                onClick={() => setSelectedVariety(null)}
               >
-                ›
+                ← Back to All Varieties
               </button>
-            </div>
-
-            <div className="flex-1">
-              <h2 className="text-3xl font-bold text-green-800 mb-2">{selectedVariety.name}</h2>
-              <p className="text-green-700 text-xl font-semibold mb-2">₹{selectedVariety.price}</p>
-              <p className="text-gray-700 mb-3">{selectedVariety.description}</p>
-              <p className="text-md mb-1">
-                <span className="font-semibold">Category:</span>{' '}
-                <span className="text-green-800">Indoor</span>
-              </p>
-              <p className="text-md mb-4">
-                <span className="font-semibold">Stock:</span>{' '}
-                <span className="text-green-800">{selectedVariety.available} available</span>
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  onClick={() => handleAddToCart(selectedVariety.name)}
-                  className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700"
-                >
-                  Add to Cart
-                </button>
-                <button
-                  className="underline text-sm text-gray-500"
-                  onClick={() => setSelectedVariety(null)}
-                >
-                  ← Back to All Varieties
-                </button>
-              </div>
             </div>
           </div>
         </div>
       ) : (
-        // === Default Main View Layout ===
+        // === Main Page Layout with Variety Cards ===
         <>
           <h1 className="text-4xl font-bold text-green-800 mb-8 text-center">Cauliflower</h1>
 
@@ -213,7 +213,7 @@ const Cauliflower = () => {
             We have these cauliflower varieties
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-0 mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-0">
             {cauliflowerVarieties.map((variety, index) => (
               <div
                 key={index}
