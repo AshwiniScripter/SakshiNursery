@@ -23,6 +23,8 @@ import Cucumber from './pages/vegetables/Cucumber';
 import Drumstick from './pages/vegetables/Drumstick';
 import SmallCucumber from './pages/vegetables/SmallCucumber';
 import Merigold from './pages/vegetables/Merigold';
+import AboutUs from './pages/AboutUs';
+
 
 
 const App = () => {
@@ -61,6 +63,8 @@ const App = () => {
         <Route path='/vegetable/small-cucumber' element={<SmallCucumber/>}/>
         <Route path='/vegetable/drumstick' element={<Drumstick/>}/>
         <Route path='/vegetable/merigold' element={<Merigold/>}/>
+        <Route path='/aboutus' element={<AboutUs/>}/>
+
       </Routes>
       <Footer />
     </>
