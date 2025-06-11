@@ -129,6 +129,9 @@ const Papaya = () => {
               <p className="text-md mb-1">
                 <span className="font-semibold">Category:</span> Indoor
               </p>
+               <p className="text-md mb-1">
+                <span className="font-semibold">Status:</span> Available
+              </p>
               <p className="text-md mb-4 text-red-600">
                 <span className="font-semibold">Available:</span>{' '}
                 {selectedVariety.available} units
