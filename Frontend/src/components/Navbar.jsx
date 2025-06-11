@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ShoppingCart, Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom'; // ✅ IMPORTANT: Import Link
+import { Link } from 'react-router-dom'; 
 import Logo from '../images/logo.png';
 
 const Navbar = () => {
@@ -12,7 +12,7 @@ const Navbar = () => {
     'Cauliflower', 'Papaya', 'Brinjal', 'Lady Finger',
     'Cabbage', 'Bottle Gourd', 'Bitter Gourd', 'Tomato',
     'Chilli', 'Capsicum', 'Watermelon', 'Muskmelon',
-    'Cucumber', 'Smaller Cucumber', 'Drumstick', 'Marigold'
+    'Cucumber', 'Small Cucumber', 'Drumstick', 'Merigold'
   ];
 
   return (

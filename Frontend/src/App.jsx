@@ -18,18 +18,11 @@ import Tomato from './pages/vegetables/Tomato';
 import Chilli from './pages/vegetables/Chilli';
 import Capsicum from './pages/vegetables/Capsicum';
 import Watermelon from './pages/vegetables/Watermelon';
+import Muskmelon from './pages/vegetables/Muskmelon';
 import Cucumber from './pages/vegetables/Cucumber';
-
-
-
-
-
-
-
-
-
-
-
+import Drumstick from './pages/vegetables/Drumstick';
+import SmallCucumber from './pages/vegetables/SmallCucumber';
+import Merigold from './pages/vegetables/Merigold';
 
 
 const App = () => {
@@ -63,10 +56,11 @@ const App = () => {
         <Route path='/vegetable/chilli' element={<Chilli/>}/>
         <Route path='/vegetable/capsicum' element={<Capsicum/>}/>
         <Route path='/vegetable/watermelon' element={<Watermelon/>}/>
+        <Route path='/vegetable/muskmelon' element={<Muskmelon/>}/>
         <Route path='/vegetable/cucumber' element={<Cucumber/>}/>
-
-
-        
+        <Route path='/vegetable/small-cucumber' element={<SmallCucumber/>}/>
+        <Route path='/vegetable/drumstick' element={<Drumstick/>}/>
+        <Route path='/vegetable/merigold' element={<Merigold/>}/>
       </Routes>
       <Footer />
     </>
