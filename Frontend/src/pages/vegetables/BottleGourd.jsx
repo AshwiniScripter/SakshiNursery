@@ -1,110 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 
-const brinjalVarieties = [
+const bottleGourdVarieties = [
   {
-    name: 'Panchganga',
+    name: 'Naga',
     description:
-      'High yielding variety known for its medium-sized, glossy purple fruits. Adapted to various climates and resistant to common pests.',
+      'Early maturing bottle gourd variety with long, uniform fruits. High yield and suitable for both fresh consumption and cooking.',
     price: 110,
     available: 30,
     images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
+      'https://static.vecteezy.com/system/resources/thumbnails/011/361/885/small/calabash-lagenaria-sacraria-fruit-from-vegetable-garden-locally-known-as-bottle-gourd-white-flowered-gourd-long-melon-new-guinea-bean-tasmania-bean-crop-planted-and-cultivated-at-farm-photo.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGr_FPmNw6QYx7xD3Nqg3YSn64PlsMlxbgrcIIzUV4D1no_VwmpYKXo_s4SHvxf9ulrxU&usqp=CAU',
+      'https://t4.ftcdn.net/jpg/07/22/56/85/360_F_722568536_IqaAvDxx5UDGi3jFVOsqlOANiA1sFByC.jpg',
     ],
   },
   {
-    name: 'Super Gaurav',
+    name: 'Navin',
     description:
-      'Popular hybrid variety producing large, deep purple fruits with good shelf life and excellent taste.',
-    price: 130,
+      'High yielding hybrid variety producing tender, light green fruits. Good resistance to major diseases and suitable for long-distance transport.',
+    price: 120,
     available: 25,
     images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
+      'https://static.vecteezy.com/system/resources/thumbnails/011/361/885/small/calabash-lagenaria-sacraria-fruit-from-vegetable-garden-locally-known-as-bottle-gourd-white-flowered-gourd-long-melon-new-guinea-bean-tasmania-bean-crop-planted-and-cultivated-at-farm-photo.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGr_FPmNw6QYx7xD3Nqg3YSn64PlsMlxbgrcIIzUV4D1no_VwmpYKXo_s4SHvxf9ulrxU&usqp=CAU',
+      'https://t4.ftcdn.net/jpg/07/22/56/85/360_F_722568536_IqaAvDxx5UDGi3jFVOsqlOANiA1sFByC.jpg',
     ],
   },
   {
-    name: 'Commander',
+    name: 'Dhruwa',
     description:
-      'Vigorous plant with medium maturity and long fruits. Suitable for fresh market and processing.',
-    price: 120,
+      'Popular variety known for cylindrical, smooth fruits and uniform shape. Performs well in multiple seasons and offers consistent yield.',
+    price: 130,
     available: 20,
     images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
-    ],
-  },
-  {
-    name: 'Deshi Ravaya',
-    description:
-      'Local variety known for its unique flavor and adaptability to traditional farming methods.',
-    price: 100,
-    available: 40,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
-    ],
-  },
-  {
-    name: 'Galan',
-    description:
-      'Early maturing variety with smooth, dark purple fruits and good disease resistance.',
-    price: 115,
-    available: 35,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
-    ],
-  },
-  {
-    name: 'Bartok',
-    description:
-      'Hybrid brinjal variety producing high-quality fruits with excellent color and firmness.',
-    price: 125,
-    available: 22,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
-    ],
-  },
-  {
-    name: 'Bharta',
-    description:
-      'Suitable for cooking and making traditional dishes; produces medium-sized, firm fruits.',
-    price: 105,
-    available: 28,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
-    ],
-  },
-  {
-    name: 'Jalgoan',
-    description:
-      'Late season variety known for its large fruits and adaptability to different soil types.',
-    price: 135,
-    available: 18,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
+      'https://static.vecteezy.com/system/resources/thumbnails/011/361/885/small/calabash-lagenaria-sacraria-fruit-from-vegetable-garden-locally-known-as-bottle-gourd-white-flowered-gourd-long-melon-new-guinea-bean-tasmania-bean-crop-planted-and-cultivated-at-farm-photo.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGr_FPmNw6QYx7xD3Nqg3YSn64PlsMlxbgrcIIzUV4D1no_VwmpYKXo_s4SHvxf9ulrxU&usqp=CAU',
+      'https://t4.ftcdn.net/jpg/07/22/56/85/360_F_722568536_IqaAvDxx5UDGi3jFVOsqlOANiA1sFByC.jpg',
     ],
   },
 ];
 
 
-const brinjalImage = "https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg";
+const bottleGourdImage =
+  'https://st4.depositphotos.com/4243035/31462/i/450/depositphotos_314626368-stock-photo-bottle-gourd-or-calabash-gourd.jpg';
 
-
-const Cauliflower = () => {
+const Papaya = () => {
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [wishlist, setWishlist] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -130,7 +70,9 @@ const Cauliflower = () => {
 
   const prevSlide = () => {
     if (!selectedVariety) return;
-    setSlideIndex((prev) => (prev - 1 + selectedVariety.images.length) % selectedVariety.images.length);
+    setSlideIndex(
+      (prev) => (prev - 1 + selectedVariety.images.length) % selectedVariety.images.length
+    );
   };
 
   useEffect(() => {
@@ -150,7 +92,7 @@ const Cauliflower = () => {
       <Toaster position="top-right" reverseOrder={false} />
 
       {selectedVariety ? (
-        <section className="flex items-center justify-center py-2">
+        <section className="flex items-center justify-center py-4">
           <article className="max-w-7xl bg-white rounded-xl shadow-xl p-6 flex flex-col md:flex-row gap-6">
             <div className="w-full md:w-1/2 relative">
               <img
@@ -190,14 +132,19 @@ const Cauliflower = () => {
             </div>
 
             <div className="flex-1">
-              <h2 className="text-3xl font-bold text-green-800 mb-2">{selectedVariety.name}</h2>
-              <p className="text-green-700 text-xl font-semibold mb-2">₹{selectedVariety.price}</p>
+              <h2 className="text-3xl font-bold text-green-800 mb-2">
+                {selectedVariety.name}
+              </h2>
+              <p className="text-green-700 text-xl font-semibold mb-2">
+                ₹{selectedVariety.price}
+              </p>
               <p className="text-gray-700 mb-3">{selectedVariety.description}</p>
               <p className="text-md mb-1">
-                <span className="font-semibold">Category:</span> Outdoor
+                <span className="font-semibold">Category:</span> Indoor
               </p>
               <p className="text-md mb-4 text-red-600">
-                <span className="font-semibold">Available:</span> {selectedVariety.available} units
+                <span className="font-semibold">Available:</span>{' '}
+                {selectedVariety.available} units
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -220,28 +167,28 @@ const Cauliflower = () => {
       ) : (
         <>
           <h1 className="text-4xl font-bold text-green-800 mb-6 text-center">
-            Brinjal
+            Bottle gourd 
           </h1>
 
           <section className="flex flex-col md:flex-row items-center gap-8 mb-10 max-w-5xl mx-auto">
             <img
-              src={brinjalImage}
-              alt="Cauliflower"
+              src={bottleGourdImage}
+              alt="Papaya"
               className="w-full md:w-1/2 rounded-lg shadow-lg object-cover max-h-80"
             />
             <div className="md:w-1/2 text-gray-700 text-lg">
               <p className="text-justify">
-                 Brinjal, also known as eggplant or aubergine, is a widely cultivated vegetable in the nightshade family. It produces glossy purple fruits that vary in shape and size. Rich in dietary fiber, vitamins, and antioxidants, brinjal supports heart health and digestion. It thrives in warm climates and is a staple in many cuisines, used in curries, grilling, roasting, and frying. Numerous hybrid varieties have been developed to improve yield, pest resistance, and fruit quality.
+                Bottle gourd is a versatile vegetable known for its light green skin, tender white flesh, and mild, slightly sweet flavor. It is low in calories and high in dietary fiber, making it an excellent choice for a healthy diet. Rich in vitamins C and B, as well as minerals like calcium and magnesium, bottle gourd supports digestion, hydration, and heart health. Grown in warm and tropical climates, this climber thrives during summer and monsoon seasons. Whether cooked in curries, stir-fries, soups, or used in desserts and juices, bottle gourd is a nutritious and widely cherished ingredient in many cuisines.
               </p>
             </div>
           </section>
 
           <h2 className="text-2xl font-semibold mb-6 text-green-700 text-center">
-            We have these brinjal varieties
+            We have these Bottle gourd  varieties
           </h2>
 
-          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-0 mb-4">
-            {brinjalVarieties.map((variety, index) => (
+          <section className="grid grid-cols-1 sm:grid-cols-3 gap-6 px-4 sm:px-0 max-w-5xl mx-auto mb-8">
+            {bottleGourdVarieties.map((variety, index) => (
               <article
                 key={index}
                 className="bg-white border border-green-200 rounded-xl shadow-md p-4 flex flex-col justify-between"
@@ -288,4 +235,4 @@ const Cauliflower = () => {
   );
 };
 
-export default Cauliflower;
+export default Papaya;

@@ -1,107 +1,78 @@
 import React, { useState, useEffect } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 
-const brinjalVarieties = [
+const tomatoVarieties = [
   {
-    name: 'Panchganga',
-    description:
-      'High yielding variety known for its medium-sized, glossy purple fruits. Adapted to various climates and resistant to common pests.',
+    name: 'Sahu',
+    description: 'High-yielding hybrid variety suitable for various climates. Produces firm, red fruits with a long shelf life.',
     price: 110,
     available: 30,
     images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
+    'https://media.istockphoto.com/id/1545800730/photo/organic-tomato-greenhouse.jpg?s=612x612&w=0&k=20&c=o6QN6XbHKqIEpgTn7bQxNgtIOGe231Nhb-_zxz3LdZI=',
+    'https://thumbs.dreamstime.com/b/sunlit-tomato-field-fresh-ripe-red-tomatoes-green-vines-summer-sunlit-tomato-field-fresh-ripe-red-tomatoes-357514223.jpg',
+    'https://t4.ftcdn.net/jpg/06/47/42/41/360_F_647424157_gjcAdF1044lhsh4gQfWaHhjzzjMMAOcF.jpg',
     ],
   },
   {
-    name: 'Super Gaurav',
-    description:
-      'Popular hybrid variety producing large, deep purple fruits with good shelf life and excellent taste.',
-    price: 130,
-    available: 25,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
-    ],
-  },
-  {
-    name: 'Commander',
-    description:
-      'Vigorous plant with medium maturity and long fruits. Suitable for fresh market and processing.',
+    name: '2048',
+    description: 'Hybrid tomato offering uniform fruit size and strong disease resistance. Great for fresh consumption and markets.',
     price: 120,
-    available: 20,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
-    ],
-  },
-  {
-    name: 'Deshi Ravaya',
-    description:
-      'Local variety known for its unique flavor and adaptability to traditional farming methods.',
-    price: 100,
-    available: 40,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
-    ],
-  },
-  {
-    name: 'Galan',
-    description:
-      'Early maturing variety with smooth, dark purple fruits and good disease resistance.',
-    price: 115,
-    available: 35,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
-    ],
-  },
-  {
-    name: 'Bartok',
-    description:
-      'Hybrid brinjal variety producing high-quality fruits with excellent color and firmness.',
-    price: 125,
-    available: 22,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
-    ],
-  },
-  {
-    name: 'Bharta',
-    description:
-      'Suitable for cooking and making traditional dishes; produces medium-sized, firm fruits.',
-    price: 105,
     available: 28,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
+     images: [
+    'https://media.istockphoto.com/id/1545800730/photo/organic-tomato-greenhouse.jpg?s=612x612&w=0&k=20&c=o6QN6XbHKqIEpgTn7bQxNgtIOGe231Nhb-_zxz3LdZI=',
+    'https://thumbs.dreamstime.com/b/sunlit-tomato-field-fresh-ripe-red-tomatoes-green-vines-summer-sunlit-tomato-field-fresh-ripe-red-tomatoes-357514223.jpg',
+    'https://t4.ftcdn.net/jpg/06/47/42/41/360_F_647424157_gjcAdF1044lhsh4gQfWaHhjzzjMMAOcF.jpg',
     ],
   },
   {
-    name: 'Jalgoan',
-    description:
-      'Late season variety known for its large fruits and adaptability to different soil types.',
+    name: 'Aayman',
+    description: 'Medium maturity variety known for its balanced flavor and smooth red fruits. Good adaptability to different soils.',
+    price: 115,
+    available: 25,
+     images: [
+    'https://media.istockphoto.com/id/1545800730/photo/organic-tomato-greenhouse.jpg?s=612x612&w=0&k=20&c=o6QN6XbHKqIEpgTn7bQxNgtIOGe231Nhb-_zxz3LdZI=',
+    'https://thumbs.dreamstime.com/b/sunlit-tomato-field-fresh-ripe-red-tomatoes-green-vines-summer-sunlit-tomato-field-fresh-ripe-red-tomatoes-357514223.jpg',
+    'https://t4.ftcdn.net/jpg/06/47/42/41/360_F_647424157_gjcAdF1044lhsh4gQfWaHhjzzjMMAOcF.jpg',
+    ],
+  },
+  {
+    name: '1517',
+    description: 'Early harvest tomato variety with firm texture and bright color. Good for transport and market sale.',
+    price: 130,
+    available: 20,
+     images: [
+    'https://media.istockphoto.com/id/1545800730/photo/organic-tomato-greenhouse.jpg?s=612x612&w=0&k=20&c=o6QN6XbHKqIEpgTn7bQxNgtIOGe231Nhb-_zxz3LdZI=',
+    'https://thumbs.dreamstime.com/b/sunlit-tomato-field-fresh-ripe-red-tomatoes-green-vines-summer-sunlit-tomato-field-fresh-ripe-red-tomatoes-357514223.jpg',
+    'https://t4.ftcdn.net/jpg/06/47/42/41/360_F_647424157_gjcAdF1044lhsh4gQfWaHhjzzjMMAOcF.jpg',
+    ],
+  },
+  {
+    name: 'Yogi',
+    description: 'Popular tomato variety with uniform fruiting and good shelf stability. Preferred in northern zones.',
     price: 135,
+    available: 22,
+     images: [
+    'https://media.istockphoto.com/id/1545800730/photo/organic-tomato-greenhouse.jpg?s=612x612&w=0&k=20&c=o6QN6XbHKqIEpgTn7bQxNgtIOGe231Nhb-_zxz3LdZI=',
+    'https://thumbs.dreamstime.com/b/sunlit-tomato-field-fresh-ripe-red-tomatoes-green-vines-summer-sunlit-tomato-field-fresh-ripe-red-tomatoes-357514223.jpg',
+    'https://t4.ftcdn.net/jpg/06/47/42/41/360_F_647424157_gjcAdF1044lhsh4gQfWaHhjzzjMMAOcF.jpg',
+    ],
+  },
+  {
+    name: '225',
+    description: 'Late-season tomato producing large, juicy fruits. Well-suited for both processing and fresh use.',
+    price: 125,
     available: 18,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
+     images: [
+    'https://media.istockphoto.com/id/1545800730/photo/organic-tomato-greenhouse.jpg?s=612x612&w=0&k=20&c=o6QN6XbHKqIEpgTn7bQxNgtIOGe231Nhb-_zxz3LdZI=',
+    'https://thumbs.dreamstime.com/b/sunlit-tomato-field-fresh-ripe-red-tomatoes-green-vines-summer-sunlit-tomato-field-fresh-ripe-red-tomatoes-357514223.jpg',
+    'https://t4.ftcdn.net/jpg/06/47/42/41/360_F_647424157_gjcAdF1044lhsh4gQfWaHhjzzjMMAOcF.jpg',
     ],
   },
 ];
 
 
-const brinjalImage = "https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg";
+
+const tomatoImage = "https://media.istockphoto.com/id/1132371208/photo/three-ripe-tomatoes-on-green-branch.jpg?s=612x612&w=0&k=20&c=qVjDb5Tk3-UccV-E9gqvoz97PTsP1QmBftw27qA9kEo=";
 
 
 const Cauliflower = () => {
@@ -220,28 +191,28 @@ const Cauliflower = () => {
       ) : (
         <>
           <h1 className="text-4xl font-bold text-green-800 mb-6 text-center">
-            Brinjal
+            Tomato
           </h1>
 
           <section className="flex flex-col md:flex-row items-center gap-8 mb-10 max-w-5xl mx-auto">
             <img
-              src={brinjalImage}
+              src={tomatoImage}
               alt="Cauliflower"
               className="w-full md:w-1/2 rounded-lg shadow-lg object-cover max-h-80"
             />
             <div className="md:w-1/2 text-gray-700 text-lg">
               <p className="text-justify">
-                 Brinjal, also known as eggplant or aubergine, is a widely cultivated vegetable in the nightshade family. It produces glossy purple fruits that vary in shape and size. Rich in dietary fiber, vitamins, and antioxidants, brinjal supports heart health and digestion. It thrives in warm climates and is a staple in many cuisines, used in curries, grilling, roasting, and frying. Numerous hybrid varieties have been developed to improve yield, pest resistance, and fruit quality.
+                Tomato is a vibrant red fruit commonly used as a vegetable, known for its juicy texture and tangy-sweet flavor. Packed with essential nutrients like vitamin C, potassium, folate, and the powerful antioxidant lycopene, tomatoes support heart health, skin health, and immunity. Grown worldwide in a variety of climates, tomatoes thrive in warm, sunny conditions and are cultivated in gardens, farms, and greenhouses. This versatile ingredient is a staple in global cuisines, enjoyed raw in salads, cooked in sauces, soups, curries, and juices. With its rich flavor and high nutritional value, the tomato is both a kitchen favorite and a health booster.
               </p>
             </div>
           </section>
 
           <h2 className="text-2xl font-semibold mb-6 text-green-700 text-center">
-            We have these brinjal varieties
+            We have these tomato varieties
           </h2>
 
           <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-0 mb-4">
-            {brinjalVarieties.map((variety, index) => (
+            {tomatoVarieties.map((variety, index) => (
               <article
                 key={index}
                 className="bg-white border border-green-200 rounded-xl shadow-md p-4 flex flex-col justify-between"

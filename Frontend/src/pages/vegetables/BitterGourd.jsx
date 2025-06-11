@@ -1,107 +1,60 @@
 import React, { useState, useEffect } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 
-const brinjalVarieties = [
+const bitterGourdVarieties = [
   {
-    name: 'Panchganga',
+    name: 'Rushan',
     description:
-      'High yielding variety known for its medium-sized, glossy purple fruits. Adapted to various climates and resistant to common pests.',
+      'Early hybrid bitter gourd known for uniform, dark green fruits with ridges. Suitable for summer and rainy seasons with high productivity.',
     price: 110,
     available: 30,
     images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
+      'https://media.istockphoto.com/id/1134148023/photo/bitter-melon-bitter-gourd.jpg?s=612x612&w=0&k=20&c=DNQSOqbXM6eg2LiSRzgJm5D_6FTp_jmfY0P9eyTG5Ko=',
+      'https://t4.ftcdn.net/jpg/04/89/23/57/360_F_489235725_bfNmQJNHKzCyScLGEIIhiX0PvUXEgd9Z.jpg',
+      'https://t3.ftcdn.net/jpg/03/67/36/64/360_F_367366472_DTqDKS1gBMpmn4UfQvI4S0Pk7oAemZRq.jpg',
     ],
   },
   {
-    name: 'Super Gaurav',
+    name: 'Pragati-65',
     description:
-      'Popular hybrid variety producing large, deep purple fruits with good shelf life and excellent taste.',
-    price: 130,
+      'Fast-growing variety with early maturity and high fruit set. Produces slender, light green fruits with excellent market value.',
+    price: 115,
     available: 25,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
+   images: [
+      'https://media.istockphoto.com/id/1134148023/photo/bitter-melon-bitter-gourd.jpg?s=612x612&w=0&k=20&c=DNQSOqbXM6eg2LiSRzgJm5D_6FTp_jmfY0P9eyTG5Ko=',
+      'https://t4.ftcdn.net/jpg/04/89/23/57/360_F_489235725_bfNmQJNHKzCyScLGEIIhiX0PvUXEgd9Z.jpg',
+      'https://t3.ftcdn.net/jpg/03/67/36/64/360_F_367366472_DTqDKS1gBMpmn4UfQvI4S0Pk7oAemZRq.jpg',
     ],
   },
   {
-    name: 'Commander',
+    name: 'Amanshri',
     description:
-      'Vigorous plant with medium maturity and long fruits. Suitable for fresh market and processing.',
-    price: 120,
+      'High yielding bitter gourd hybrid known for long, glossy fruits and disease resistance. Performs well in varied climates.',
+    price: 125,
     available: 20,
     images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
+      'https://media.istockphoto.com/id/1134148023/photo/bitter-melon-bitter-gourd.jpg?s=612x612&w=0&k=20&c=DNQSOqbXM6eg2LiSRzgJm5D_6FTp_jmfY0P9eyTG5Ko=',
+      'https://t4.ftcdn.net/jpg/04/89/23/57/360_F_489235725_bfNmQJNHKzCyScLGEIIhiX0PvUXEgd9Z.jpg',
+      'https://t3.ftcdn.net/jpg/03/67/36/64/360_F_367366472_DTqDKS1gBMpmn4UfQvI4S0Pk7oAemZRq.jpg',
     ],
   },
   {
-    name: 'Deshi Ravaya',
+    name: 'Aryan',
     description:
-      'Local variety known for its unique flavor and adaptability to traditional farming methods.',
-    price: 100,
-    available: 40,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
-    ],
-  },
-  {
-    name: 'Galan',
-    description:
-      'Early maturing variety with smooth, dark purple fruits and good disease resistance.',
-    price: 115,
-    available: 35,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
-    ],
-  },
-  {
-    name: 'Bartok',
-    description:
-      'Hybrid brinjal variety producing high-quality fruits with excellent color and firmness.',
-    price: 125,
-    available: 22,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
-    ],
-  },
-  {
-    name: 'Bharta',
-    description:
-      'Suitable for cooking and making traditional dishes; produces medium-sized, firm fruits.',
-    price: 105,
-    available: 28,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
-    ],
-  },
-  {
-    name: 'Jalgoan',
-    description:
-      'Late season variety known for its large fruits and adaptability to different soil types.',
-    price: 135,
+      'Vigorous growing variety with thick, dark green fruits. Ideal for extended harvesting and suitable for commercial cultivation.',
+    price: 130,
     available: 18,
-    images: [
-      'https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg',
-      'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWdncGxhbnRzfGVufDB8fDB8fHww',
-      'https://t3.ftcdn.net/jpg/05/24/02/16/360_F_524021631_QzfhezPbmDfC9eUk0mguC0tb6ThbUEJQ.jpg',
+   images: [
+      'https://media.istockphoto.com/id/1134148023/photo/bitter-melon-bitter-gourd.jpg?s=612x612&w=0&k=20&c=DNQSOqbXM6eg2LiSRzgJm5D_6FTp_jmfY0P9eyTG5Ko=',
+      'https://t4.ftcdn.net/jpg/04/89/23/57/360_F_489235725_bfNmQJNHKzCyScLGEIIhiX0PvUXEgd9Z.jpg',
+      'https://t3.ftcdn.net/jpg/03/67/36/64/360_F_367366472_DTqDKS1gBMpmn4UfQvI4S0Pk7oAemZRq.jpg',
     ],
   },
 ];
 
 
-const brinjalImage = "https://housing.com/news/wp-content/uploads/2022/11/brinjal-feature-compressed.jpg";
+
+const bitterGourdImage = "https://cdn.pixabay.com/photo/2021/08/09/21/49/bitter-gourd-6534410_640.jpg";
 
 
 const Cauliflower = () => {
@@ -220,28 +173,28 @@ const Cauliflower = () => {
       ) : (
         <>
           <h1 className="text-4xl font-bold text-green-800 mb-6 text-center">
-            Brinjal
+            Bitter Gourd
           </h1>
 
           <section className="flex flex-col md:flex-row items-center gap-8 mb-10 max-w-5xl mx-auto">
             <img
-              src={brinjalImage}
+              src={bitterGourdImage}
               alt="Cauliflower"
               className="w-full md:w-1/2 rounded-lg shadow-lg object-cover max-h-80"
             />
             <div className="md:w-1/2 text-gray-700 text-lg">
               <p className="text-justify">
-                 Brinjal, also known as eggplant or aubergine, is a widely cultivated vegetable in the nightshade family. It produces glossy purple fruits that vary in shape and size. Rich in dietary fiber, vitamins, and antioxidants, brinjal supports heart health and digestion. It thrives in warm climates and is a staple in many cuisines, used in curries, grilling, roasting, and frying. Numerous hybrid varieties have been developed to improve yield, pest resistance, and fruit quality.
+                 Bitter gourd, also known as bitter melon, is a distinct green vegetable recognized for its unique bitter flavor and rough, warty skin. Despite its taste, it is prized for its powerful health benefits. Rich in vitamins C and A, iron, and antioxidants, bitter gourd is especially valued for its blood-purifying properties and its ability to help regulate blood sugar levels, making it a popular choice for managing diabetes. Grown in tropical and subtropical regions, it thrives in warm climates. Commonly used in stir-fries, curries, juices, and traditional remedies, bitter gourd is a nutritional powerhouse celebrated in various cuisines for both its flavor and medicinal value.
               </p>
             </div>
           </section>
 
           <h2 className="text-2xl font-semibold mb-6 text-green-700 text-center">
-            We have these brinjal varieties
+            We have these Bitter Gourd varieties
           </h2>
 
           <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-0 mb-4">
-            {brinjalVarieties.map((variety, index) => (
+            {bitterGourdVarieties.map((variety, index) => (
               <article
                 key={index}
                 className="bg-white border border-green-200 rounded-xl shadow-md p-4 flex flex-col justify-between"
