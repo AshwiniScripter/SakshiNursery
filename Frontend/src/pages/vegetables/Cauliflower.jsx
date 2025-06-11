@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 
 const cauliflowerVarieties = [
@@ -21,7 +21,7 @@ const cauliflowerVarieties = [
     price: 150,
     available: 20,
     images: [
-     'https://swirlsofflavor.com/wp-content/uploads/2022/03/cauliflower-heads-cva-700x521.jpg.webp',
+      'https://swirlsofflavor.com/wp-content/uploads/2022/03/cauliflower-heads-cva-700x521.jpg.webp',
       'https://www.marthastewart.com/thmb/vaYxsIZB6TKJpWPW8cp6ca7-5ys=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cauliflower-med108019_horiz-0622-d111be16021545ae8d216be6e477fae4.jpg',
       'https://cdn.britannica.com/24/140624-050-A8237BB9/Cauliflower-plant-form-cauliflower-cabbage-flower-structures.jpg',
     ],
@@ -57,7 +57,7 @@ const cauliflowerVarieties = [
     price: 110,
     available: 25,
     images: [
-     'https://swirlsofflavor.com/wp-content/uploads/2022/03/cauliflower-heads-cva-700x521.jpg.webp',
+      'https://swirlsofflavor.com/wp-content/uploads/2022/03/cauliflower-heads-cva-700x521.jpg.webp',
       'https://www.marthastewart.com/thmb/vaYxsIZB6TKJpWPW8cp6ca7-5ys=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cauliflower-med108019_horiz-0622-d111be16021545ae8d216be6e477fae4.jpg',
       'https://cdn.britannica.com/24/140624-050-A8237BB9/Cauliflower-plant-form-cauliflower-cabbage-flower-structures.jpg',
     ],
@@ -81,7 +81,7 @@ const cauliflowerVarieties = [
     price: 135,
     available: 18,
     images: [
-     'https://swirlsofflavor.com/wp-content/uploads/2022/03/cauliflower-heads-cva-700x521.jpg.webp',
+      'https://swirlsofflavor.com/wp-content/uploads/2022/03/cauliflower-heads-cva-700x521.jpg.webp',
       'https://www.marthastewart.com/thmb/vaYxsIZB6TKJpWPW8cp6ca7-5ys=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cauliflower-med108019_horiz-0622-d111be16021545ae8d216be6e477fae4.jpg',
       'https://cdn.britannica.com/24/140624-050-A8237BB9/Cauliflower-plant-form-cauliflower-cabbage-flower-structures.jpg',
     ],
@@ -117,57 +117,71 @@ const Cauliflower = () => {
 
   const prevSlide = () => {
     if (!selectedVariety) return;
-    setSlideIndex(
-      (prev) => (prev - 1 + selectedVariety.images.length) % selectedVariety.images.length
-    );
+    setSlideIndex((prev) => (prev - 1 + selectedVariety.images.length) % selectedVariety.images.length);
   };
 
-  React.useEffect(() => {
+  // Reset to first image when a new variety is selected
+  useEffect(() => {
     setSlideIndex(0);
   }, [selectedVariety]);
 
+  // Autoplay for image slider
+  useEffect(() => {
+    if (!selectedVariety) return;
+    const interval = setInterval(() => {
+      setSlideIndex((prev) => (prev + 1) % selectedVariety.images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [selectedVariety, selectedVariety?.images.length]);
+
   return (
-    <div className="px-0 py-0 bg-green-50 min-h-screen">
+    <main className="p-6 bg-green-50 min-h-screen">
       <Toaster position="top-right" reverseOrder={false} />
 
       {selectedVariety ? (
-        // === Centered Detailed View Layout ===
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="max-w-7xl bg-white rounded-xl shadow-xl p-8 flex flex-col md:flex-row gap-6 items-center">
-            <div className="w-full md:w-1/2 relative flex items-center justify-center">
+        <section className="min-h-screen flex items-center justify-center">
+          <article className="max-w-7xl bg-white rounded-xl shadow-xl p-8 flex flex-col md:flex-row gap-6 items-center">
+            <div className="w-full md:w-1/2 relative flex flex-col items-center justify-center">
               <img
                 src={selectedVariety.images[slideIndex]}
-                alt={`${selectedVariety.name} - slide ${slideIndex + 1}`}
+                alt={`${selectedVariety.name} variety - image ${slideIndex + 1}`}
                 className="w-full h-auto rounded-lg object-cover"
               />
-              <button
-                onClick={prevSlide}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-green-600 text-white rounded-full px-3 py-1 hover:bg-green-700"
-                aria-label="Previous image"
-              >
-                ‹
-              </button>
-              <button
-                onClick={nextSlide}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-green-600 text-white rounded-full px-3 py-1 hover:bg-green-700"
-                aria-label="Next image"
-              >
-                ›
-              </button>
+              <div className="absolute left-2 top-1/2 transform -translate-y-1/2">
+                <button
+                  onClick={prevSlide}
+                  className="bg-green-600 text-white rounded-full px-3 py-1 hover:bg-green-700"
+                >
+                  ‹
+                </button>
+              </div>
+              <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
+                <button
+                  onClick={nextSlide}
+                  className="bg-green-600 text-white rounded-full px-3 py-1 hover:bg-green-700"
+                >
+                  ›
+                </button>
+              </div>
+
+              {/* Dot Navigation */}
+              <div className="flex mt-4 gap-2">
+                {selectedVariety.images.map((_, i) => (
+                  <button
+                    key={i}
+                    className={`w-4 h-4 rounded-full border-2 ${slideIndex === i ? 'bg-green-600 border-green-600' : 'bg-white border-gray-400'}`}
+                    onClick={() => setSlideIndex(i)}
+                  />
+                ))}
+              </div>
             </div>
 
             <div className="flex-1">
               <h2 className="text-3xl font-bold text-green-800 mb-2">{selectedVariety.name}</h2>
               <p className="text-green-700 text-xl font-semibold mb-2">₹{selectedVariety.price}</p>
               <p className="text-gray-700 mb-3">{selectedVariety.description}</p>
-              <p className="text-md mb-1">
-                <span className="font-semibold">Category:</span>{' '}
-                <span className="text-green-800">Indoor</span>
-              </p>
-              <p className="text-md mb-4">
-                <span className="font-semibold">Stock:</span>{' '}
-                <span className="text-green-800">{selectedVariety.available} available</span>
-              </p>
+              <p className="text-md mb-1"><span className="font-semibold">Category:</span> Indoor</p>
+              <p className="text-md mb-4"><span className="font-semibold">Stock:</span> {selectedVariety.available} available</p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
@@ -184,14 +198,12 @@ const Cauliflower = () => {
                 </button>
               </div>
             </div>
-          </div>
-        </div>
+          </article>
+        </section>
       ) : (
-        // === Default Main View Layout ===
         <>
           <h1 className="text-4xl font-bold text-green-800 mb-8 text-center">Cauliflower</h1>
-
-          <div className="flex flex-col md:flex-row items-center gap-8 mb-12 max-w-5xl mx-auto">
+          <section className="flex flex-col md:flex-row items-center gap-8 mb-12 max-w-5xl mx-auto">
             <img
               src={cauliflowerImage}
               alt="Cauliflower"
@@ -200,22 +212,18 @@ const Cauliflower = () => {
             <div className="md:w-1/2 text-gray-700 text-lg">
               <p className="text-justify">
                 Cauliflower is a cool-season vegetable belonging to the Brassica family, prized for
-                its dense, white edible curds. Rich in vitamins C and K, fiber, and antioxidants, it
-                supports immune health and digestion. This versatile vegetable is enjoyed steamed,
-                roasted, or raw in salads and can be used as a low-carb substitute in many recipes.
-                Cauliflower grows well in temperate climates and is cultivated worldwide in numerous
-                hybrid varieties adapted to different seasons.
+                its dense, white edible curds. Rich in vitamins C and K, fiber, and antioxidants...
               </p>
             </div>
-          </div>
+          </section>
 
           <h2 className="text-2xl font-semibold mb-6 text-green-700 text-center">
             We have these cauliflower varieties
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-0 mb-4">
+          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-0 mb-4">
             {cauliflowerVarieties.map((variety, index) => (
-              <div
+              <article
                 key={index}
                 className="bg-white border border-green-200 rounded-xl shadow-md p-4 flex flex-col justify-between"
               >
@@ -252,12 +260,12 @@ const Cauliflower = () => {
                     View Details
                   </button>
                 </div>
-              </div>
+              </article>
             ))}
-          </div>
+          </section>
         </>
       )}
-    </div>
+    </main>
   );
 };
 
