@@ -25,7 +25,6 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex flex-1 justify-center gap-10 items-center text-lg">
           <Link to="/" className="hover:text-yellow-200 font-semibold">Home</Link>
-          <Link to="/plant" className="hover:text-yellow-200 font-semibold">Plant</Link>
 
           {/* Shop Dropdown */}
           <div className="relative">
@@ -52,8 +51,9 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/book-now" className="hover:text-yellow-200 font-semibold">Book Now</Link>
           <Link to="/team" className="hover:text-yellow-200 font-semibold">Team</Link>
+          <Link to="/aboutus" className="hover:text-yellow-200 font-semibold">About Us</Link>
+          <Link to="/book-now" className="hover:text-yellow-200 font-semibold">Contact us</Link>
 
           {/* Pages Dropdown */}
           <div className="relative">
@@ -65,8 +65,6 @@ const Navbar = () => {
             </button>
             {showPages && (
               <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 bg-white text-black rounded-xl shadow-2xl z-10 w-56">
-                <Link to="/contact" className="block px-4 py-2 hover:text-yellow-300">Contact</Link>
-                <Link to="/about-us" className="block px-4 py-2 hover:text-yellow-300">About Us</Link>
                 <Link to="/delivery" className="block px-4 py-2 hover:text-yellow-300">Our Delivery</Link>
                 <Link to="/infrastructure" className="block px-4 py-2 hover:text-yellow-300">Infrastructure</Link>
                 <Link to="/my-orders" className="block px-4 py-2 hover:text-yellow-300">My Orders</Link>
@@ -104,7 +102,7 @@ const Navbar = () => {
 
         <nav className="flex flex-col gap-4 px-6 mt-4 text-lg">
           <Link to="/" className="hover:text-yellow-200">Home</Link>
-          <Link to="/plant" className="hover:text-yellow-200">Plant</Link>
+          <Link to="/aboutus" className="hover:text-yellow-200">About Us</Link>
 
           {/* Shop with nested links */}
           <div>
@@ -129,8 +127,10 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/book-now" className="hover:text-yellow-200">Book Now</Link>
-          <Link to="/team" className="hover:text-yellow-200">Team</Link>
+          <Link to="/aboutus" className="hover:text-yellow-200 font-semibold">About Us</Link>
+          <Link to="/book-now" className="hover:text-yellow-200 font-semibold">Contact us</Link>
+          <Link to="/team" className="hover:text-yellow-200 font-semibold">Team</Link>
+
 
           {/* Pages with nested links */}
           <div>
@@ -142,8 +142,6 @@ const Navbar = () => {
             </button>
             {showPages && (
               <div className="mt-2 ml-4 flex flex-col gap-2">
-                <Link to="/contact" className="hover:text-yellow-200">Contact</Link>
-                <Link to="/about-us" className="hover:text-yellow-200">About Us</Link>
                 <Link to="/delivery" className="hover:text-yellow-200">Our Delivery</Link>
                 <Link to="/infrastructure" className="hover:text-yellow-200">Infrastructure</Link>
                 <Link to="/my-orders" className="hover:text-yellow-200">My Orders</Link>
