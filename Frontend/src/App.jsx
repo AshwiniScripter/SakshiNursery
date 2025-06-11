@@ -15,6 +15,17 @@ import Cabbage from './pages/vegetables/Cabbage';
 import BottleGourd from './pages/vegetables/BottleGourd';
 import BitterGourd from './pages/vegetables/BitterGourd';
 import Tomato from './pages/vegetables/Tomato';
+import Chilli from './pages/vegetables/Chilli';
+import Capsicum from './pages/vegetables/Capsicum';
+import Watermelon from './pages/vegetables/Watermelon';
+import Cucumber from './pages/vegetables/Cucumber';
+
+
+
+
+
+
+
 
 
 
@@ -49,9 +60,13 @@ const App = () => {
         <Route path='/vegetable/bottle-gourd' element={<BottleGourd/>}/>
         <Route path='/vegetable/bitter-gourd' element={<BitterGourd/>}/>
         <Route path='/vegetable/tomato' element={<Tomato/>}/>
+        <Route path='/vegetable/chilli' element={<Chilli/>}/>
+        <Route path='/vegetable/capsicum' element={<Capsicum/>}/>
+        <Route path='/vegetable/watermelon' element={<Watermelon/>}/>
+        <Route path='/vegetable/cucumber' element={<Cucumber/>}/>
 
 
-
+        
       </Routes>
       <Footer />
     </>
