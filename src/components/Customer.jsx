@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Sample customer data (you can replace with real ones)
 const customers = [
   {
     name: "GreenVille Landscapers",
